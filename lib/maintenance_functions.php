@@ -15,9 +15,10 @@ class maintenance_functions
 
     public static function get_host()
     {
-        if ($host = $_SERVER['HTTP_X_FORWARDED_HOST']) {
+        $host = '';
+        
+        if (isset($_SERVER['HTTP_X_FORWARDED_HOST']) && $host = $_SERVER['HTTP_X_FORWARDED_HOST']) {
             $elements = explode(',', $host);
-
             $host = trim(end($elements));
         } else {
             if (!$host = $_SERVER['HTTP_HOST']) {
