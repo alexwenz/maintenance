@@ -13,7 +13,7 @@
 class maintenance_functions
 {
 
-    public function get_host()
+    public static function get_host()
     {
         if ($host = $_SERVER['HTTP_X_FORWARDED_HOST']) {
             $elements = explode(',', $host);
